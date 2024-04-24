@@ -75,7 +75,7 @@ async function getKeyPair(db) {
         try {
           const keyPair = await crypto.subtle.generateKey(
             { name: "ECDSA", namedCurve: "P-256" },
-            true, // set to true to make keys extractable for demonstration
+            false, // THIS MUST BE FALSE!!! OTHERWISE THE PRIVATE KEY IS EXPOSED!!!
             ["sign", "verify"]
           );
 
