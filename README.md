@@ -188,6 +188,10 @@ async function main() {
 
   const isValid = await verifySignature(keyPair.publicKey, signatureBuffer, message);
   console.log(`Verification: ${isValid ? "Successful" : "Failed"}`);
+
+  // Try Getting the PRIVATE key extracted
+  console.log("--------------------------------------------\nNow Try Getting the PrivateKey!\n\nTHIS SHOULD FAIL!!!!!!!!!!!!!!");
+  const privateKey = await crypto.subtle.exportKey("jwk", keyPair.privateKey)
 }
 
 // Run the main function and log errors to the console
